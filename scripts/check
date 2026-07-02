@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$repo_root"
+
+nvim --headless -u NONE -l tests/herdr-navigator-test.lua
+
+if command -v luacheck >/dev/null 2>&1; then
+  luacheck lua tests
+fi
+
+if command -v stylua >/dev/null 2>&1; then
+  stylua --check lua tests
+fi
+
+shellcheck scripts/check
+bash -n scripts/check
