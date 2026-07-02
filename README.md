@@ -81,8 +81,8 @@ In Herdr, bind the same keys to the Herdr-side navigator:
 ```toml
 [[keys.command]]
 key = "alt+h"
-type = "shell"
-command = "herdr-navigator left alt+h"
+type = "plugin_action"
+command = "willfish.herdr-navigator.left"
 ```
 
 Repeat for `down alt+j`, `up alt+k`, and `right alt+l`.
